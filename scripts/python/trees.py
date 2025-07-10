@@ -238,5 +238,6 @@ class MutativeTraversals (TreeTraversals):
             if right:
                 self.postorder(right, iterative=False)
             self.apply_func(root)
+
                 
 
