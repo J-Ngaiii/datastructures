@@ -153,8 +153,8 @@ class MutativeTraversals (TreeTraversals):
         
         children = root.get_children()
         if iterative:
-            stack = []
-            curr = root
+            stack = [root]
+            curr = root.get_left()
             while stack or curr:
                 while curr: # while loop runs populates stack we have no left child
                     stack.append(curr)

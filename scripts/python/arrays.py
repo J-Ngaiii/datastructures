@@ -138,6 +138,22 @@ def remove_duplicates_unsorted(nums: List[int]) -> int:
         if nums[i] not in processed:
             set.add(nums[i])
     return list(processed)
+
+def basic_prefix_sum(nums: List[int], inplace: bool = False):
+    if not nums:
+        return []
+    
+    if inplace:
+        for i in range(1, len(nums)):
+            nums[i] = nums[i] + nums[i - 1]
+        return
+    
+    dp = len(nums)*[0]
+    dp[0] = nums[0]
+    for i in range(1, len(nums)):
+        dp[i] = dp[i] + dp[i - 1]
+    
+    return dp
             
 
 
