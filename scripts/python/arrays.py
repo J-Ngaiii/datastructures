@@ -151,7 +151,7 @@ def basic_prefix_sum(nums: List[int], inplace: bool = False):
     dp = len(nums)*[0]
     dp[0] = nums[0]
     for i in range(1, len(nums)):
-        dp[i] = dp[i] + dp[i - 1]
+        dp[i] = nums[i] + dp[i - 1]
     
     return dp
             
