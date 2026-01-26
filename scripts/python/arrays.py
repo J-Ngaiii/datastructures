@@ -154,6 +154,121 @@ def basic_prefix_sum(nums: List[int], inplace: bool = False):
         dp[i] = dp[i] + dp[i - 1]
     
     return dp
+
+def max_prefix_sum(nums: List[int]) -> int :
+    """
+    Here we implicitly do a prefix sum but recursively adding on the previous value
+    Except we don't track the prefix sum of the arr up to every single prefix in a dp array
+    We don't need to track every single prefix sum cuz we just need the max
+    """
+    if not nums:
+        return []
+    
+    best_sum = 0
+    curr_sum = 0
+    for val in nums:
+        curr_sum += val
+        if curr_sum > best_sum:
+            best_sum = curr_sum
+    return best_sum
+
+def max_subarray_prefix_sum(nums, k):
+    """
+    """
+    # Dictionary to store number of times a prefix sum has occurred
+    # key: prefix_sum, value: count
+    # Initialize with {0: 1} to handle subarrays starting from index 0
+    prefix_counts = {0: 1}
+    
+    current_sum = 0
+    count = 0
+    
+    for num in nums:
+        current_sum += num
+        
+        # Check if (current_sum - k) exists in our map
+        diff = current_sum - k
+        if diff in prefix_counts:
+            # Add the NUMBER OF TIMES that difference has appeared
+            count += prefix_counts[diff]
+        
+        # Update the map with the current sum
+        if current_sum in prefix_counts:
+            prefix_counts[current_sum] += 1
+        else:
+            prefix_counts[current_sum] = 1
+            
+    return count
+
+def carPooling(trips, capacity):
+    """
+    :type trips: List[List[int]]
+    :type capacity: int
+    :rtype: bool
+    - I need to keep track of capacity
+    - across locations at distinct indicies
+    - so it's difference array! mark the start and stops --> do the prefix sum and return false if you ever exceed capacity 
+
+    - the only difficulty is that I don't have all the indices for the trip (so I don't know how long to make the diff array) --> ig i can do an arbitrarily large diff_array?
+    """
+    diff_array = [0] * 1001 # problem says from_i < to_i <= 1000 
+    # so we set for size 1001 (constant size == ok to do this)
+    max_end = 0
+    for p, start, end in trips:
+        # zero-indexing since 0 <= from_i
+        # should be ending exclusive because we're dropping them off at index `end`` so we carry them up to and including only index `end - 1`
+        diff_array[start] += p
+        diff_array[end] -= p
+        if end > max_end:
+            max_end = end
+            # keep track of end anyway to avoid running over if we don't need to 
+    
+    curr_sum = 0
+    for i in range(max_end + 1):
+        # max_end + 1 to make sure we include the doff_array[max_end] in the sum
+        curr_sum += diff_array[i]
+        if curr_sum > capacity:
+            return False
+
+    return True
+
+def merge(intervals):
+        """
+        :type intervals: List[List[int]]
+        :rtype: List[List[int]]
+        Time Complexity: O(N log N) (dominated by sort)
+        Space Complexity: O(1) (excluding return space)
+
+        - variation of carpooling but with arbitrarily large interval ends
+        - do inplace with same approach as unique elems in non-increasing arr problem
+        """
+        if not intervals:
+            return []
+
+        intervals.sort() 
+        
+        write_index = 0 # tracks beginning of window of processed elems
+        for i in range(1, len(intervals)):
+            curr_start, curr_end = intervals[i]
+            prev_end = intervals[write_index][1] 
+            
+            if curr_start > prev_end:
+                # No Overlap:
+                # Move our write pointer forward and copy the current interval there
+                write_index += 1
+                intervals[write_index] = intervals[i]
+            else:
+                # Overlap:
+                # Merge into the existing spot at write_index
+                # We don't need to change the start time (it's already sorted min)
+                # We just maximize the end time
+                intervals[write_index][1] = max(curr_end, prev_end)
+                
+        # Return only the portion of the list we used
+        return intervals[:write_index + 1]
+
+        
+    
             
 
 
