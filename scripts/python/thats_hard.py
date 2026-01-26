@@ -82,3 +82,15 @@ def get_min_changes(s: str, k: int):
         # thus min num of swaps overall = min(num swaps group 1) + min(num swaps group 2) + ... etc
             
     return total_changes
+
+def num_combo_schedules(n: int, n_intervals: int) -> int:
+    # Edge case: If we have more than 1 slot but only 1 process,
+    # we can't avoid repeats.
+    if n_intervals > 1 and n == 1:
+        return 0
+    if n_intervals == 1:
+        return n
+        
+    # First slot has 'n' choices.
+    # The remaining (n_intervals - 1) slots each have 'n-1' choices.
+    return n * ((n - 1) ** (n_intervals - 1))
