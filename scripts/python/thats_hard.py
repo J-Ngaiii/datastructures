@@ -94,3 +94,36 @@ def num_combo_schedules(n: int, n_intervals: int) -> int:
     # First slot has 'n' choices.
     # The remaining (n_intervals - 1) slots each have 'n-1' choices.
     return n * ((n - 1) ** (n_intervals - 1))
+
+def min_generations_to_equalize(layers):
+    """
+    Calculates the min generations to make all layers equal.
+    """
+    if not layers:
+        return 0
+        
+    max_h = max(layers)
+
+    def solve_for_target(target):
+        diffs = [target - x for x in layers]
+        
+        total_needed = sum(diffs)
+        odd_diffs_count = sum(1 for d in diffs if d % 2 != 0)
+        
+        # Condition 1: Find min k to satisfy the odd count
+        if odd_diffs_count > 0:
+            k_odd = 2 * odd_diffs_count - 1
+        else:
+            k_odd = 0
+            
+        # Condition 2: Find min k to satisfy the total sum    
+        k_sum = total_needed // 3 * 2 + total_needed % 3
+        
+        return max(k_odd, k_sum)
+
+    # Check max_h and max_h + 1
+    # Sometimes going higher changes parities favorably
+    ans1 = solve_for_target(max_h)
+    ans2 = solve_for_target(max_h + 1)
+    
+    return min(ans1, ans2)
