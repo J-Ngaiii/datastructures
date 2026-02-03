@@ -79,7 +79,7 @@ def dfs(adjList, visiting=False, reverseOrder=False, recursive=False):
         Recursive implementation does three things
         - Takes in ONE node and processes it (in this case add to a path array that's maintained)
         - Then iterate through neighbors feeding the neighbors into the node arg to restart the cycle
-        - It becomes DFS because the first recursive call 
+        - It becomes DFS because the first recursive call will keep opening new function calls before letting the for loop iterate forward
         """
         path.append(node)
         neighbors = adjList[node]
@@ -119,18 +119,3 @@ def dfs(adjList, visiting=False, reverseOrder=False, recursive=False):
                     visited[neighbor] = True
                 stack.append(neighbor)
     return path
-
-def longest_path_dag(adjList):
-    n = len(adjList)
-    dp = [-1] * n  # dp[u] = length of longest path starting from u
-
-    def dfs(u):
-        if dp[u] != -1:
-            return dp[u]
-        max_len = 0
-        for v in adjList[u]:
-            max_len = max(max_len, 1 + dfs(v))
-        dp[u] = max_len
-        return dp[u]
-
-    return max(dfs(u) for u in range(n))

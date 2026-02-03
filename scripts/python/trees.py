@@ -78,6 +78,63 @@ class BinaryTree (Tree):
         assert isinstance(right, BinaryTree), "Can only set binary tree objects as right child"
         self.right = right
 
+    def _depth_helper(self, node):
+        """
+        Docstring for _depth_helper
+        
+        If we encounter a leaf passing none as node.left and node.right will make the max statement = 0
+        then we just do + 1 to count the leaf
+
+        Otherwise it will update the depth to whichever child was deeper and +1 to count current node
+
+        Rather than using an counter in the argument that can be referenced in recursive calls (topdown)
+        we return the counter in the output which can also be referenced in recursive calls (bottomup)
+        """
+        if node is None:
+            return 0
+        
+        return max(self._depth_helper(node.left), self._depth_helper(node.right)) + 1
+
+    def depth(self):
+        return self._depth_helper(self)
+    
+    def _path_sum_dfs(self, node, k):
+        """
+        Docstring for _path_sum_dfs
+        
+        DFS to check a complete path but you need to be tracking k as you dfs down.
+        """
+        if node is None:
+            # None must always return false
+            # Because a node that has a left child but not a right one must always be False (hasn't fully traversed path yet)
+            return False 
+        
+        if node.left is None and node.right is None:
+            # logic for handling leaf
+            return k == 0
+        
+        left, right = self._path_sum_dfs(node.left, k - node.val), self._path_sum_dfs(node.right, k - node.val) # update counter
+        return left or right # we only need one of the children to have a valid path 
+    
+    def pathSum(self, k):
+        self._path_sum_dfs(self, k)
+
+    def _symmetric(self, left, right):
+        if left is None and right is None:
+            return True
+        elif left is None and right is not None:
+            return False
+        elif left is not None and right is None: 
+            return False
+        
+        curr_sym = left.val == right.val 
+        outer_sym = self._symmetric(left.left, right.right)
+        inner_sym = self._symmetric(left.right, right.left)
+        return curr_sym and outer_sym and inner_sym
+    
+    def isMirror(self):
+        return self._symmetric(self.left, self.right)
+
 class TreeTraversals():
     def __init__(self):
         pass
