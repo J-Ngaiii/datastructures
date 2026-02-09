@@ -4,10 +4,12 @@ title: "Range Sum Query 2D"
 date: 2026-02-08
 categories: DSA leetcode
 ---
+# Dynamic Programming Conceptual
 
+# Dynamic Programming Toolkit and Tips
+
+# Dynamic Programming Leetcode
 ## [Range Sum Query 2D](https://neetcode.io/problems/range-sum-query-2d-immutable/question)
-
----
 
 ### Main Idea
 Intuition
@@ -59,9 +61,5 @@ class NumMatrix:
 
 
         return self.pref[row2 + 1][col2 + 1] + topleft - left - top
-
-
-# Your NumMatrix object will be instantiated and called as such:
-# obj = NumMatrix(matrix)
-# param_1 = obj.sumRegion(row1,col1,row2,col2)
+```
 

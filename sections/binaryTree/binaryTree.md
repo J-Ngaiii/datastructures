@@ -5,12 +5,11 @@ date: 2026-02-08
 categories: DSA Conceptual
 ---
 
-## Binary Tree Basics
+# Binary Tree Conceptual
 
----
+# Binary Tree Toolkit and Tips
 
 ### Implementations
-
 Python
 ```python
 from collections.abc import Iterable
