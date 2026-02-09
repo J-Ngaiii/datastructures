@@ -5,8 +5,8 @@ description: >- # this means to ignore newlines until "baseurl"
   plus notes and solutions to interesting leetcode problems I've tried. 
 
 # Deployment settings
-baseurl: "" # the subpath of your site, e.g. /project-name/
-url: "" # the base hostname & protocol for your site
+baseurl: "/datastructures"
+url: "https://j-ngaiii.github.io/datastructures/" 
 
 # Theme Selection
 theme: minima
