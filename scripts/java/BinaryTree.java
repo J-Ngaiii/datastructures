@@ -1,5 +1,3 @@
-
-
 public class BinaryTree extends Tree{
     private BinaryTree left;
     private BinaryTree right;
