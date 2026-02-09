@@ -1,5 +1,7 @@
 ## Binary Search Basics
 
+---
+
 ### Implementation
 Recursive
 ```python

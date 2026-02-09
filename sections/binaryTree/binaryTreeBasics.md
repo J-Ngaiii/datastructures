@@ -1,5 +1,7 @@
 ## Binary Tree Basics
 
+---
+
 ### Implementations
 
 Python
