@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "Binary Tree Basics"
+title: "Binary Tree"
 date: 2026-02-08
 categories: DSA Conceptual
 ---
