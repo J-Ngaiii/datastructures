@@ -8,6 +8,16 @@ description: >- # this means to ignore newlines until "baseurl"
 baseurl: "/datastructures"
 url: "https://j-ngaiii.github.io/datastructures/" 
 
+include:
+  - sections
+
+# automatically apply the layout to every file in /sections/
+defaults:
+  - scope:
+      path: "sections"
+    values:
+      layout: "default"
+
 # Theme Selection
 theme: minima
 
