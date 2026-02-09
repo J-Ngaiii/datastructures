@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Range Sum Query 2D"
 date: 2026-02-08
 categories: DSA leetcode

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Binary Search Basics"
 date: 2026-02-08
 categories: DSA Conceptual

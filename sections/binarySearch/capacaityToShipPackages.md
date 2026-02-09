@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Ship Capacity Binary Search"
 date: 2026-02-08
 categories: DSA leetcode

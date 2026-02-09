@@ -4,17 +4,16 @@ title: Home
 ---
 
 # Data Structures & Algorithms Notes
-Below are my solutions organized by category.
 
-## Debugging: All Found Files
+Below are the solutions found in your folders:
+
 <ul>
-  {% for file in site.html_pages %}
-    {% if file.path contains "sections/" %}
+  {% for p in site.pages %}
+    {% if p.path contains "sections/" and p.ext == ".md" %}
       <li>
-        <a href="{{ file.url | relative_url }}">
-          {{ file.title | default: file.name }}
+        <a href="{{ p.url | relative_url }}">
+          {{ p.title | default: p.name | replace: ".md", "" | replace: "-", " " | capitalize }}
         </a>
-        <br><small>Path: {{ file.path }}</small>
       </li>
     {% endif %}
   {% endfor %}

@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: default
 title: "Binary Tree Basics"
 date: 2026-02-08
 categories: DSA Conceptual
