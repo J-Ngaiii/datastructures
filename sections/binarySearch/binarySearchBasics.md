@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Binary Search Basics"
+date: 2026-02-08
+categories: DSA Conceptual
+---
+
 ## Binary Search Basics
 
 ---

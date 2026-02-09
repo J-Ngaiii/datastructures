@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Range Sum Query 2D"
+date: 2026-02-08
+categories: DSA leetcode
+---
+
 ## [Range Sum Query 2D](https://neetcode.io/problems/range-sum-query-2d-immutable/question)
 
 ---

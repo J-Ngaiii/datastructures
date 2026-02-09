@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Ship Capacity Binary Search"
+date: 2026-02-08
+categories: DSA leetcode
+---
+
 ## Capacity to Ship Capacity within D Days
 
 ---

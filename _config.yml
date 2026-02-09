@@ -1,0 +1,17 @@
+title: Datastructures and Algorithms Notes
+email: jngai_@berkeley.edu
+description: >- # this means to ignore newlines until "baseurl"
+  A collection of my notes on Datastructures and Algorithms from Berkeley's CS61B classes
+  plus notes and solutions to interesting leetcode problems I've tried. 
+
+# Deployment settings
+baseurl: "" # the subpath of your site, e.g. /project-name/
+url: "" # the base hostname & protocol for your site
+
+# Theme Selection
+theme: minima
+
+# Build settings
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

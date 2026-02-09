@@ -1,3 +1,10 @@
+---
+layout: post
+title: "Binary Tree Basics"
+date: 2026-02-08
+categories: DSA Conceptual
+---
+
 ## Binary Tree Basics
 
 ---
