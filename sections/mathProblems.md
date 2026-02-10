@@ -23,7 +23,7 @@ categories: DSA
 
 
 # Math Problems Leetcode 
-## [Best Time to Buy and Sell Stock II] (https://neetcode.io/problems/best-time-to-buy-and-sell-stock-ii/question)
+## [Best Time to Buy and Sell Stock II](https://neetcode.io/problems/best-time-to-buy-and-sell-stock-ii/question)
 
 ### Main Idea
 Intuition
