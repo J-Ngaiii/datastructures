@@ -2,14 +2,17 @@
 layout: default
 title: "Binary Tree"
 date: 2026-02-08
-categories: DSA Conceptual
+categories: DSA
 ---
 
 # Binary Tree Conceptual
 
 # Binary Tree Toolkit and Tips
 
-### Implementations
+## Basic Implementations
+
+The following or simple implementations of binary trees. Done to practice fundamentals and coding from scratch. 
+
 Python
 ```python
 from collections.abc import Iterable

@@ -2,13 +2,16 @@
 layout: default
 title: "Binary Search"
 date: 2026-02-08
-categories: DSA Conceptual
+categories: DSA
 ---
 
 # Binary Search Conceptual
 
 # Binary Search Toolkit and Tips
-### Implementation
+
+## Basic Implementations
+The following or simple implementations of binary search. Done to practice fundamentals and coding from scratch. 
+
 Recursive
 ```python
 class Solution:
@@ -56,7 +59,7 @@ class Solution:
 ```
 
 # Binary Search Leetcode
-## Capacity to Ship Capacity within D Days
+## [Capacity to Ship Capacity within D Days](https://neetcode.io/problems/capacity-to-ship-packages-within-d-days/question)
 
 ### Main Idea
 Intuition
