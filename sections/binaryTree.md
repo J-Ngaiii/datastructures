@@ -180,3 +180,56 @@ public class BinaryTree extends Tree{
     }
 }
 ```
+
+# Binary Tree Leetcode Classics:
+
+## [Binary Tree Level Order Traversal](https://leetcode.com/problems/binary-tree-level-order-traversal/description/)
+
+### Problem
+- Want to return a list that lists out all the nodes on a certain layer of a binary tree
+
+### Main Idea
+Intuition
+- Level order => BFS
+- We want some way to keep track of when we've exhausted a "level" as we BFS
+- Naive approach: use a second while loop with an array to keep track of nodes in each level(level_tracking_array). After adding children of the root into the queue → do while queue is not empty add children to level_tracking_array.
+    - Problem: the second inner loop will keep going to process nodes in the next layer
+- Aha momemnt: We take the length of the queue before hand (say we call it len $k$ )=> counts the number of nodes that defines a "level" then we only iterate thru and pop the first $k$ nodes from the queue => allowing us to fully traverse a level at each iteration of the while loop
+
+Why it's classic
+- Level-Tracking BFS: Using a `while queue` loop --> checking the length of the queue --> then iterating thru only those nodes is the go to way of doing level-tracking BFS
+
+Main Idea
+- BFS then check the length of the queue
+- For loop through thee nodes that define a "level" and append accordingly
+
+### Implementation
+```python
+from collections import deque
+
+class Solution(object):
+    def levelOrder(self, root):
+        """
+        :type root: Optional[TreeNode]
+        :rtype: List[List[int]]
+        """
+        ans = []
+        if root is None:
+            return ans
+        queue = deque()
+        queue.append(root)
+
+
+        while queue:
+            curr_level = []
+            num_nodes = len(queue)
+            for i in range (num_nodes):
+                curr = queue.popleft()
+                curr_level.append(curr.val)
+                if curr.left:
+                    queue.append(curr.left)
+                if curr.right:
+                    queue.append(curr.right)
+            ans.append(curr_level)
+        return ans
+```
