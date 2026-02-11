@@ -58,7 +58,8 @@ class Solution:
         return -1  # if loop completes without return search failed
 ```
 
-# Binary Search Leetcode
+# Binary Search Leetcode Classic
+
 ## [Capacity to Ship Capacity within D Days](https://neetcode.io/problems/capacity-to-ship-packages-within-d-days/question)
 
 ### Main Idea

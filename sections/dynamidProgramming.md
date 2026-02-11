@@ -38,7 +38,7 @@ def longest_path_dag(adjList):
     return max(dfs(u) for u in range(n))
 ```
 
-# Dynamic Programming Leetcode
+# Dynamic Programming Leetcode Classics
 ## Climbing Up Stairs
 ### Problem
 - You are climbing a staircase. It takes n steps to reach the top.
@@ -131,6 +131,7 @@ class Solution:
             dp[i] = dp[i - 1] + dp[i - 2]
         return dp[n]
 ```
+# Dynamic Programming Leetcode Nifty
 
 ## [Range Sum Query 2D](https://neetcode.io/problems/range-sum-query-2d-immutable/question)
 
