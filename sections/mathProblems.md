@@ -29,13 +29,13 @@ categories: DSA
 Intuition
 
 - Buying and selling items across discrete time then adding up the differences => Telescoping Sums. Buying at time $t_1$ then selling at time $t_n$ is the same as: 
-<div>
-$$\sum_{i=1}^{n-1} t_{i+1} - t_i$$
+<div style="text-align: center;">
+$\sum_{i=1}^{n-1} t_{i+1} - t_i$
 </div>
 - So we don't have to handle for behavior where we buy a stock then hold it for multiple days. The profit will equal summing up all the positive intermediate differences
 - To maxamize profit across some time interval $t\in\{1, 2, ..., n\}, \forall t$ we just want to take the telescoping sum pairings where the intermediate differences are positive, eliminating all the pairings that contribute negatively. 
-<div>
-$$\max = \sum_{i=1}^{n-1} t_{i+1} - t_i : t_{i+1} - t_i > 0$$
+<div style="text-align: center;">
+$\max = \sum_{i=1}^{n-1} t_{i+1} - t_i : t_{i+1} - t_i > 0$
 </div>
 Main Explanation
 - We check if the current day's price > the previous day's price => if so then the telescoping sum pairing formed by these two numbers is positive => we want to add this pairing to our running sum. 
