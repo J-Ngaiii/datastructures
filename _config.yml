@@ -18,6 +18,10 @@ defaults:
     values:
       layout: "default"
 
+# disable base math engine so the LaTeX in default.html doesn't bug
+kramdown:
+  math_engine: null
+
 # Theme Selection
 theme: minima
 
