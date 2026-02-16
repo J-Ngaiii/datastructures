@@ -41,6 +41,21 @@ WHERE
 ORDER BY c.customer_name
 ```
 
+## [570. Managers with at Least 5 Direct Reports](https://leetcode.com/problems/managers-with-at-least-5-direct-reports/description/?envType=study-plan-v2&envId=top-sql-50)
+
+### Main Idea
+Why it's a classic
+- Using a subqeury to do some aggregation then comparing with a where clause
+
+### Implementation
+```sql
+SELECT e1.name FROM Employee AS e1
+WHERE (
+    SELECT COUNT(*) FROM Employee AS e2
+    WHERE e2.managerId = e1.id
+    ) >= 5
+```
+
 # Case Statement Conceptual
 
 # Case Statement Classics
@@ -73,6 +88,33 @@ JOIN variables v2 ON e.right_operand = v2.name; -- one col w/ right translated i
 # Data Definitional Language (DDL) Conceptual
 
 # Data Definition Language (DDL) Classics
+
+# Aggregations Conceptual
+
+# Aggregations Classics
+
+## [1193. Monthly Transactions I](https://leetcode.com/problems/monthly-transactions-i/description/?envType=study-plan-v2&envId=top-sql-50)
+
+### Main Idea
+Why it's classic
+- Avoiding "gotcha" of just extracting the month via `MONTH(trans_date)` since we ned to group by every month in every year
+- Date formating methods
+- Conditional aggregation using CASE statements. Specifically conditonal counting via SUM 1 ELSE 0. 
+
+### Implementation
+```sql
+SELECT 
+    -- we format YYYY-MM to avoid counting Jan 2024 and Jan 2025 as the same
+    DATE_FORMAT(trans_date, '%Y-%m') AS month, 
+    country,
+    COUNT(*) AS trans_count,
+    -- using case statements wrapped in for conditional aggregation
+    SUM(CASE WHEN state = 'approved' THEN 1 ELSE 0 END) AS approved_count,
+    SUM(amount) AS trans_total_amount,
+    SUM(CASE WHEN state = 'approved' THEN amount ELSE 0 END) AS approved_total_amount
+FROM Transactions
+GROUP BY YEAR(trans_date), MONTH(trans_date), country;
+```
 
 # Window Functions Conceptual
 
