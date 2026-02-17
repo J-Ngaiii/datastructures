@@ -198,7 +198,6 @@ Syntax: NOT EXISTS
     - If no rows in `houses` have `size_sqft` >= `1000` then the whole query returns `TRUE`
     - If at least one row in `houses` satisfies `size_sqft` >= `1000` then the whole query returns `FALSE`
 ```sql
-
 NOT EXISTS (SELECT * FROM houses WHERE size_sqft >= 1000)
 ```
 
