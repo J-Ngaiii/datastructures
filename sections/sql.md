@@ -2,7 +2,7 @@
 layout: default
 title: "SQL"
 date: 2026-02-14
-categories: DSQLA
+categories: SQL
 ---
 # Special Datatype Handling
 

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: "My Background!"
+title: "My Background"
 date: 2026-02-16
 categories: About
 ---
